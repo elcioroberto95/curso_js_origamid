@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <button class="iniciar">Iniciar</button>
+  <button class="pausar">Pausar</button>
+  <button class="resetar">resetar</button>
+  <span class="tempo"></span>
+
+  <script>
+    const iniciar = document.querySelector('.iniciar');
+    const pausar = document.querySelector('.pausar');
+    const resetar = document.querySelector('.resetar');
+    const tempo = document.querySelector('.tempo');
+    iniciar.addEventListener('click', iniciarTempo);
+    pausar.addEventListener('click', pausarTempo);
+    resetar.addEventListener('click', resetarTempo);
+    let i = 0;
+    let timer;
+    function iniciarTempo() {
+      timer = setInterval(() => {
+        tempo.innerText = i++;
+      }, 100)
+      iniciar.setAttribute('disabled', '')
+    }
+    function pausarTempo() {
+      clearInterval(timer)
+      iniciar.removeAttribute('disabled')
+    }
+    function resetarTempo() {
+      tempo.innerText = 0;
+      i = 0;
+    }
+  </script>
+</body>
+
+</html>
